@@ -1,0 +1,29 @@
+### ---------------------------------------------------------------------
+# MINIMUM TECHNICAL REQUIREMENTS
+### ---------------------------------------------------------------------
+
+# 1) ask() the user for a word
+# 2) Loop through each letter in the word to complete the program
+# 3) Ask the user to input a word for each letter in the original word
+# 4) Add the acrostic to the stage using the Text tool from Shapes.
+# Hint: Use list() to convert the original word into a list of letters
+
+
+stage.set_background("forest")
+sprite = codesters.Sprite("kitten", 0, -145) 
+sprite.set_say_color("yellow")
+sprite.say("Good day!")
+word = sprite.ask("Give me a word please! Purrrr") 
+stage.wait() 
+
+sprite.say("Let's make an acrostic poem for " + word )
+wordletters = word.upper()
+chosen_word = "" 
+my_display = codesters.Display(wordletters, 180, 150) 
+
+y = 200
+for letters in wordletters:
+    stage.wait()
+    poem = sprite.ask("Enter a word for each letter of your word!") 
+    text2 = codesters.Text(letters + poem[1:], 0, y, "yellow") 
+    y -= 30 
